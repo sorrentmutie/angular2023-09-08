@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from '../../models/product';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-products-in-stock',
@@ -8,13 +9,16 @@ import { Product } from '../../models/product';
 })
 export class ProductsInStockComponent {
 
+  randomNumber = 0;
   products: Product[] = [];
   productsInOffer: Product[] = [];
-  selectedProduct: Product | undefined = undefined;;
+  selectedProduct: Product | undefined = undefined;
+  // productsService = new ProductsService();
 
-  constructor() {
-    this.products = this.getProducts();
-    this.productsInOffer = this.getOffers();
+  constructor(private productsService: ProductsService) {
+    this.products = this.productsService.getProducts();
+    this.productsInOffer = this.productsService.getOffers();
+    this.randomNumber = this.productsService.getRandomNumber();
   }
 
   showDetailsInStock(product: Product)
@@ -31,21 +35,6 @@ export class ProductsInStockComponent {
 
 
 
-
-  getOffers(): Product[] {
-    return [
-      {  id: 1, name: "Frigorifero", price: 1000, image: "https://th.bing.com/th/id/OIP.NzYJLzgW03Ivi4mgOZTLZgHaHa?pid=ImgDet&rs=1", releaseDate: new Date()},
-    ];
-
-  }
-
-  getProducts() : Product[] {
-    return [
-      {  id: 1, name: "Frigorifero", price: 1000, image: "https://th.bing.com/th/id/OIP.NzYJLzgW03Ivi4mgOZTLZgHaHa?pid=ImgDet&rs=1", releaseDate: new Date()},
-      {  id: 2, name: "TV", price: 2000, image: "https://th.bing.com/th/id/OIP.NzYJLzgW03Ivi4mgOZTLZgHaHa?pid=ImgDet&rs=1", releaseDate: new Date()},
-      {  id: 3, name: "Forno", price: 3000,  image: "https://th.bing.com/th/id/OIP.NzYJLzgW03Ivi4mgOZTLZgHaHa?pid=ImgDet&rs=1", releaseDate: new Date()}
-    ];
-   }
 
 
 
