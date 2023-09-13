@@ -11,6 +11,7 @@
         <th>Data</th>
         <th>Prezzo</th>
         <th>Foto</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
         <td>
           <img src="{{product.image}}">
          </td>
+         <td> <button (click)="showDetails(product)" class="btn btn-warning">Dettaglio </button>  </td>
        </tr>
     </tbody>
   </table>

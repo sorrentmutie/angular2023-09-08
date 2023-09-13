@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../products/models/product';
 
 @Component({
@@ -7,23 +7,11 @@ import { Product } from '../products/models/product';
   styleUrls: ['./second.component.css']
 })
 export class SecondComponent {
-   products: Product[] = [];
+   @Input() products: Product[] = [];
+   @Output() emitter: EventEmitter<Product> = new EventEmitter<Product>();
    title = "Elenco Prodotti";
-   //title: string = "Products";
 
-   constructor() {
-     this.products = this.getProducts();
+   showDetails(selectedProduct: Product): void {
+    this.emitter.emit(selectedProduct);
    }
-
-   getProducts() : Product[] {
-    return [
-      {  id: 1, name: "Frigorifero", price: 1000, image: "https://th.bing.com/th/id/OIP.NzYJLzgW03Ivi4mgOZTLZgHaHa?pid=ImgDet&rs=1", releaseDate: new Date()},
-      {  id: 2, name: "TV", price: 2000, image: "https://th.bing.com/th/id/OIP.NzYJLzgW03Ivi4mgOZTLZgHaHa?pid=ImgDet&rs=1", releaseDate: new Date()},
-      {  id: 3, name: "Forno", price: 3000,  image: "https://th.bing.com/th/id/OIP.NzYJLzgW03Ivi4mgOZTLZgHaHa?pid=ImgDet&rs=1", releaseDate: new Date()}
-
-
-    ];
-   }
-
-
 }

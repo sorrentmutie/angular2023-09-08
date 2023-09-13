@@ -1,0 +1,7 @@
+<p>products-in-stock works!</p>
+
+<app-second [products]="products" (emitter)="showDetailsInStock($event)"  ></app-second>
+
+<hr/>
+
+<app-second [products]="productsInOffer" (emitter)="showDetailsInOffer($event)"></app-second>

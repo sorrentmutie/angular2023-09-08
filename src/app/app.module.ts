@@ -8,6 +8,7 @@ import { SecondComponent } from './second/second.component';
 import { CarrelloComponent } from './carrello/carrello/carrello.component';
 import { PagamentoComponent } from './carrello/pagamento/pagamento.component';
 import { AnnullamentoComponent } from './carrello/annullamento/annullamento.component';
+import { ProductsInStockComponent } from './products/pages/products-in-stock/products-in-stock.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AnnullamentoComponent } from './carrello/annullamento/annullamento.comp
     SecondComponent,
     CarrelloComponent,
     PagamentoComponent,
-    AnnullamentoComponent
+    AnnullamentoComponent,
+    ProductsInStockComponent
   ],
   imports: [
     BrowserModule,
