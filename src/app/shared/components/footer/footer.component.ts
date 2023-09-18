@@ -13,7 +13,7 @@ export class FooterComponent {
     this.randomNumberInFooter = this.service.getRandomNumber();
 
     setInterval(() => {
-      this.randomNumberInFooter += 1;
+     // this.randomNumberInFooter += 1;
     }, 1000);
 
   }
