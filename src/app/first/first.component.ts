@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-first',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./first.component.css']
 })
 export class FirstComponent {
-   constructor() {
+   constructor(private router: Router) {
 
       let k : unknown | undefined = undefined;
       k = 10;
@@ -38,6 +39,11 @@ export class FirstComponent {
 
     sum(a: number, b: number): number {
       return a + b;
+    }
+
+    navigate(){
+      //this.router.navigate(['/random']);
+      this.router.navigate(['/stock', 5]);
     }
 
 }

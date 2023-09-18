@@ -1,6 +1,7 @@
 import { Product } from "../models/product";
 import { Injectable } from "@angular/core";
 import { OffersService } from "./offers.service";
+import { Observable, of } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,8 @@ export class ProductsService {
     ];
    }
 
+   getProductsAsObservable(): Observable<Product[]>{
+     return of(this.getProducts());
+   }
 
 }
